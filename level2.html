@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+    <style>
+        h1{
+            border: 2px solid black;
+            padding: 20px;
+            width: 250px;
+        }
+        div{
+            margin-bottom: 15px;
+        }
+        input{
+            margin-right: 10px;
+            width: 150px;
+            height: 30px;
+
+        }
+        button{
+            width: 100px;
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+  
+     
+ <div id="input">
+     <input type="text" id="iP">
+     <button id="Btn" onclick="addBtn()">Add</button>
+
+ </div>
+ <ul id="output">
+    
+    
+    
+ </ul>
+
+
+       <script >
+           let mintextlength = 3;
+           let iP=document.getElementById("iP");
+           let list=document.getElementById("output");
+           let i = 1;
+
+        
+
+
+
+
+           function textFilter(x){
+               if (x){
+
+                  if(x.length >= mintextlength){
+                    return x;
+                  }else{
+                      alert("Min text length is at lease 3")
+                      return false;
+                  }
+
+               }else{
+                   alert("Input text is empty")
+                return false;
+               }
+           }
+           function addBtn(){
+
+            let iPtext =textFilter(iP.value);
+              
+            if(iPtext){
+                showlist(iPtext);
+              iP.value ="";
+            }
+           }
+
+
+           function showlist(text){
+            list.innerHTML += `
+                        <li class="list-item" id="list ${i}">
+                    <button class="Del-btn" onclick="deleteList(${i})">Delete</button>
+                    <button class="edit-btn" onclick="EditList(${i})">Edit</button>
+                    <span id="text ${i}">${text}</span>
+                </li>
+            `;
+            i++;
+               
+            }
+                                
+           function deleteList(listId){
+            let current = document.getElementById(`list ${listId}`);
+            let currentText = document.getElementById(`text ${listId}`).innerHTML;
+            let confirmbox = confirm(`Are You Sure To Delete  ${currentText} `);
+          
+
+             if(confirmbox){
+                list.removeChild(current);
+             }else{
+                 console.log(`Cancel to Delet ${currentText}`)
+             }
+           }
+
+           function EditList(listId){
+              let current = document.getElementById(`text ${listId}`);
+              let newtext = prompt("Say Something", current.innerHTML);
+                   
+             if(textFilter(newtext)){
+                current.innerHTML= newtext ;
+             }
+
+           }
+
+
+
+
+
+       </script>
+
+        
+        
+   
+
+</body>
+</html>

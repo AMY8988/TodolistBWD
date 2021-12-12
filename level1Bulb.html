@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java</title>
+    
+   
+</head>
+<body>
+    <img src="images/pic_bulboff.gif" alt=""  id="obj">
+
+    <button onclick="control()">Switch</button>
+
+
+    <script>
+      //  function control(){
+      //      let image=document.getElementById('obj');
+      //      if(image.src.match("bulbon")){
+      //          image.src="/images/pic_bulboff.gif"
+      //      }else{
+      //          image.src="/images/pic_bulbon.gif"
+      //     }
+      //  }
+         function control(){
+            let img=document.getElementById("obj");
+            let arr=img.src;
+              //alert(arr);
+            //  alert(arr[arr.lenght-1]);
+
+            if(arr==="http://127.0.0.1:5500/images/pic_bulboff.gif"){               
+                img.src="/images/pic_bulbon.gif";
+            }else{
+                img.src="/images/pic_bulboff.gif"
+            }
+         }
+        
+        
+
+
+
+    </script>
+
+</body>
+</html>

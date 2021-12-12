@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>
+        To do list
+       </title>
+   </head> 
+   <body>
+
+        <Div class="toDoList">
+            <div>
+                <input type="text" id="input">
+                <button id="addText" onclick="addlist()">add</button>
+            </div>
+
+            <ol id="list">
+               
+            </ol>
+        </Div>
+
+
+        <Script>
+             let  input= document.getElementById("input");
+             let  list = document.getElementById("list")
+             let minTextLength = 4;
+             let i= 1;
+
+             function textFliter(x){
+                 if(x){
+                     if(x.length >= minTextLength){
+
+                         return x;
+                        
+                     }else{
+                        return false;
+                     }
+                 }else{
+                    alert("This is Empty");
+                 }
+             }
+
+             function Showlist(text){
+                list.innerHTML +=  `
+                 <li class="listItem" id="list${i}">
+                    <button class="btn-delete" onclick="deletelist(${i})" >Delete</button>
+                    <button class="btn-edit" onclick= "editList(${i})" >Edit</button>
+                    <span id="listText${i}">${text}</span>
+                </li>
+                 `
+                 i++;
+             }
+
+             function deletelist(listId){
+                 let current = document.getElementById(`list${listId}`)
+                
+                 let currentText = document.getElementById(`listText${listId}`).innerHTML ;
+                 let deleteconfrim = confirm(` Are you sure to Delete '${currentText}' `)
+
+                 if(deleteconfrim){
+                    list.removeChild(current) // removechild ဆိုတာ delete လူပ်တာ
+                 }else{
+                     console.log("Cancel Delete")
+                 }
+             }
+
+             function editList(listId){
+                let current = document.getElementById(`listText${listId}`);
+                let newText = prompt("Say Something",current.innerHTML );
+
+               if(textFliter(newText)) {
+                current.innerHTML = newText;
+               }
+                
+
+             }
+
+            function addlist(){
+
+                let inputText= textFliter(input.value);
+
+             if(inputText){
+                Showlist(inputText);
+                input.value = "";
+             }else{
+                 alert("MinTextLength is 4")
+             }
+             
+                    
+            };
+        </Script>
+   </body>
+</html>

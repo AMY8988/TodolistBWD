@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Calculator
+        </title>
+<style>
+    .cal-key{
+        background-color: gray;
+        color: white;
+    }
+</style>
+
+    </head>
+
+    <body>
+        <div class="cal">
+            <h1 class="display-box" ></h1>
+            <div class="keyword"></div>
+        </div>
+
+        <Script>
+            let displayBox = document.querySelector(".display-box")
+            let keypad = document.querySelector(".keyword")
+            let calKey = ["+","-","*","/","="] ; //arr
+
+            function showdisplay(x){
+                displayBox.innerHTML += x;
+            }
+
+            function calculator(){
+                    let calText = displayBox.innerHTML;
+                   displayBox.innerHTML = eval(calText); //eval ဆိူတာ တွက်ချက်ပေးတာ string ထဲကဟာကိုလည်း တွက်ပေးသည်
+                   // displayBox အစား showdisplay ကိုစမ်းသုံးကြည့်
+            }
+
+            for( i=0;i<=9;i++ ){
+                keypad.innerHTML += `<button class="no-key" onclick="showdisplay(${i})">${i}</button>`
+            };
+
+            calKey.map((el)=> { 
+                if(el == "="){
+                    keypad.innerHTML += `<button class= "cal-key" onclick="calculator()">${el}</button>`
+                }else{
+                    keypad.innerHTML += `<button class= "cal-key" onclick="showdisplay('${el}')">${el}</button>`
+                }
+              
+             } ) //arr ဆိုတော့ map သုံးလို့ရယ်
+             // ()=>() က function ပဲ
+
+             // map ထဲမှာ if else သုံးထားတာသေချာကြည့်
+          
+
+         
+    
+        </Script>
+    </body>
+
+ 
+
+</html>

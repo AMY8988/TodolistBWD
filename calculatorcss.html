@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Calculator
+        </title>
+        <style>
+
+            *{
+                padding: 0;
+                margin: 0 ;
+                box-sizing: border-box;
+                color: white;
+                font-size: 30px;
+                font-family: Arial ;
+            }
+            body{
+                background-color: black;
+                margin: 100px auto;
+                width: 400px;
+              
+            }
+           
+            .cal{
+                width: 400px;
+            }
+            .display {
+
+                font-size: 60px;
+                text-align: right;
+            }
+         
+            .keypad-table tr:first-child .key {
+                background-color: #a5a5a5;
+
+            }
+            .keypad-table tr:first-child .key:active{
+                background-color: #a5a5a560;
+            }
+            .keypad-table tr td:last-child .key {
+                background-color: #ffa45c ;
+            }
+            .keypad-table tr td:last-child .key.key:active{
+                background-color: #ffa45c60;
+            }
+            .key {
+                width: 90px;
+                height: 90px;
+                margin: 5px;
+                border: 1px solid black;
+                text-align: center;
+                line-height: 90px;
+                border-radius: 45px;
+                background-color: #333333;
+                cursor: pointer;
+                user-select: none;
+    
+            }
+            .key:active {
+                background-color: #33333360;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="cal">
+            <div class="display">0</div>
+            <div class="keypad">
+                <table class="keypad-table">
+                    <tr >
+                        <td >
+                            <div class="key" onclick="allClear()">AC</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="clearLast()">C</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay('%')">%</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay('/')">&#247;</div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td >
+                            <div class="key" onclick="ShowDisplay(7)">7</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay(8)">8</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay(9)">9</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay('*')">&#215;</div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td >
+                            <div class="key" onclick="ShowDisplay(4)">4</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay(5)">5</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay(6)">6</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay('-')">&#8722;</div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td >
+                            <div class="key" onclick="ShowDisplay(1)">1</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay(2)">2</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay(3)">3</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="ShowDisplay('+')">&#43;</div>
+                        </td>
+                    </tr>
+                    <tr >
+                        <td colspan="2" >
+                            <div class="key" onclick="ShowDisplay(0)" style="width: 190px;">0</div>
+                        </td>
+                       
+                        <td >
+                            <div class="key" onclick="ShowDisplay('.')">.</div>
+                        </td>
+                        <td >
+                            <div class="key" onclick="calculate()">=</div>
+                        </td>
+                    </tr>
+                  
+                </table>
+            </div>
+        </div>
+
+        <Script>
+
+            let displayBox = document.querySelector(".display") ;
+            let operator = ["+","-","*","/","%","."]
+         
+            function ShowDisplay(x){
+                let current = displayBox.innerHTML;
+                let lastindex = current[current.length-1];
+
+                if(displayBox.innerHTML ==0){
+                   return displayBox.innerHTML = x;
+                }
+                else if(operator.includes(x) && operator.includes(lastindex) ){
+
+                  return  displayBox.innerHTML = current.substring(0,current.length-1)+x ;
+
+                }
+                 return  displayBox.innerHTML += x;
+
+            } // includes ဆိုတာ arr ထဲမှာပါတဲ့ဟာတွေကို စစ်တာ
+              //substring ဆိုတာက နောက်ဆုံးတလုံးကိုနုတ်တာ
+              // return အောက်ကဟာတွေဆိုအလုပ်မလုပ်ဘူး သေချာမှတ်ထား
+
+            function calculate (){
+                let current= displayBox.innerHTML ;
+                displayBox.innerHTML = eval(current) ;
+            }
+
+            function allClear(){
+                displayBox.innerHTML = 0 ;
+            }
+
+            function clearLast(){
+                let current = displayBox.innerHTML;
+                if(current.length == 1){
+                    displayBox.innerHTML = 0;
+                }else{
+                    displayBox.innerHTML = current.substring(0,current.length-1);
+                }
+                
+            }
+
+            
+
+        </Script>
+    </body>
+</html>

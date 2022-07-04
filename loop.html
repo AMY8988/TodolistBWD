@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let myinfo = { name:"Amy Moe Zaw",
+                       age: 20,
+                       job: "Student",
+                       relationship: "Single"
+                
+        }
+
+        let exo = ["Kai" , "chanyeol", "Baekhyun", "D.0","Suho", "Sehun"];
+
+    // arr ကို forနဲ့ loop ရင် x=0; က စတယ် arr index ka 0 ka sa loh
+    //    for (let x=0; x<= exo.length; x++){
+
+
+    //             console.log(exo[x]);
+
+    //    };
+
+
+
+    //for of က arr မှာပဲ အလုပ်လုပ်တယ်
+       for(x of exo){
+           console.log(x)
+       };
+       
+
+       // for in က arr ရော object ရောအလုပ်လုပ်တယ် 
+       // for in မှာ x က object ရဲ့  key 
+        // arr မှာဆို x က index number
+       for(x in myinfo){
+           //console.log(myinfo[x]);
+           console.log( x , " = ", myinfo[x]);
+       }
+
+
+    </script>
+</body>
+</html>

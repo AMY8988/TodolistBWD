@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Testing</title>
+    <style>
+        #edit{
+            text-align: center;
+        }
+
+        #testForm{
+            display: inline-block;
+           
+        }
+
+        #output{
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input{
+            margin-bottom: 10px;
+        }
+   
+        label{
+           display: inline-block;
+           float: left;
+           margin-right: 50px;
+
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <div id="edit">
+        <div id="output">
+            Min Galar Pr
+        </div>
+
+       <form action="" id="testForm">
+           <fieldset>
+               <legend>Text Editor</legend>
+               <label for="text">Name     : </label>
+               <input type="text" name="text" id="text">
+               <br>
+               <label for="color">Font Color : </label>
+               <input type="color" name="" id="color">
+               <br>
+               <label for="size">Font Size : </label>
+               <input type="range" name="" id="fontSize" min="10" max="100" value="50">
+               <br>
+               <label for="fontFamily">Font Style : </label>
+               
+                 <select name="" id="fontStyle">
+                    <option value="Arial">Arial</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Courier">Courier</option>
+                    <option value="Sans-Serif">Sans-Serif</option>
+                 </select>
+              
+           </fieldset>
+       </form>
+      
+    </div>
+
+        <script>
+            let output = document.querySelector("#output");
+            let text = document.querySelector("#text");
+            let color = document.querySelector("#color");
+            let fontSize = document.querySelector("#fontSize");
+            let fontStyle = document.querySelector("#fontStyle");
+
+
+            text.addEventListener("keyup", function(){
+                output.innerText = this.value;
+            });
+
+            color.addEventListener("change", function(){
+                output.style.color = this.value ;
+            });
+
+           fontSize.addEventListener("change", function(){
+               output.style.fontSize = this.value+"px";
+           });
+
+           fontStyle.addEventListener("change", function(){
+               output.style.fontFamily = this.value;
+           });
+
+
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #result{
+        display: inline-block;
+        width: 200px;
+        height: 30px;
+    }
+</style>
+<body>
+
+ <!-- <div>
+    <h1>Welcome From Testing Class</h1>
+
+    <input type="text" placeholder="Write Your Name" id="input">
+    <br>
+    <button onclick="setName()">Comfirm Your Name</button>
+    <p>
+        <h3 id="text">Hello</h3>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+         Id, amet est. Iste ipsum praesentium quis debitis doloremque beatae, libero,<br>
+          nesciunt tenetur, laborum nihil sapiente in maiores amet voluptatem totam! Totam!
+ 
+    </p>
+ </div> -->
+
+
+ <h1>Area Calculate</h1>
+
+ 
+ <input type="number" id="width" placeholder="Width">
+ <input type="number" id="breadth" placeholder="Breadth">
+ 
+ <button id="calcu" onclick="cal()">Calculate</button>
+<br>
+ <span>Result :</span>
+ <span id="result"></span>
+ <button id="store" onclick="storelist()">Store</button>
+ <button id="clear" onclick="clearResult()">Clear</button>
+ <br>
+ <ul id="list">
+    
+ </ul>
+
+    <script>
+
+      
+
+
+        let width = document.getElementById("width");
+        let breadth = document.getElementById("breadth");
+        let result = document.getElementById("result");
+       
+         
+        function cal(){
+
+            if(width.value == 0 || breadth.value == 0){
+                alert("Fill The Number")
+            }else{
+                   let area = width.value * breadth.value;
+                   result.innerHTML = ` ${width.value}ft x ${breadth.value}ft =  ${area} ft<sup>2</sup>`;
+                   width.value ="";
+                   breadth.value = "";   
+            };
+           
+        };
+
+        function clearResult(){
+            result.innerHTML = "";
+        }
+
+
+        function storelist(){
+             
+            if(result.innerHTML == ""){
+                alert("There is no result");
+            }else{
+                let list = document.getElementById("list");
+                list.innerHTML += `<li>${ result.innerHTML}</li>`;
+                clearResult();
+            }
+
+           
+        }
+
+
+
+
+
+
+
+
+
+
+
+          // let text = document.getElementById("text");
+        // let inputText = document.getElementById("input");
+
+        // function setName(){
+        //     // text ထဲကို input ထည့် ချင်တာမို့လို့ ထည့်ခံရမယ့်အကောင်ကိုအရင်ရေး ပီးမှ ထည့်မယ့်ကောင်ကိုရေး ရတယ်
+        //     text.innerText = inputText.value;
+        // }
+    </script>
+</body>
+</html>

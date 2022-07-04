@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ForEach And map Method</title>
+
+</head>
+<body>
+    <script>
+        let fruit = ["apple","pineapple","Banana","orange","graps","Lime","watermelone"];
+        let mark = [40,30,69,71,93,34];
+        
+
+        //foreach()
+    //     let ul = document.createElement("ul");
+    //     // ul ကို အပြင်မှာ သတ်မှတ်ပေးရတယ်
+    //    fruit.forEach(function(i){
+        
+    //         let li = document.createElement("li");
+    //          let text = document.createTextNode(i);
+    //          li.append(text);
+    //          ul.append(li);
+    //    })
+    // document.body.prepend(ul);
+    
+
+      //  map() 
+    // let newArr = fruit.map(function(el){
+    //        return el+" - "+el.length;
+    // });
+    // console.log(newArr)
+
+    // let newArr1 = mark.map(function(el){
+    //         return el >= 40 ? "Success" : "Failed";
+    // });
+    // console.log(newArr1)
+
+    // filter()
+    // let newArr2 = fruit.filter(function(el){
+    //             console.log(el+" - "+el.length);
+    //             return el.length <=5 ;
+    // });
+    // console.log(newArr2);
+
+    //find()
+    // let newArr3 = fruit.find(function(el){
+    //         console.log(el);
+    //         return el.length == 9;
+
+    // });
+    //    console.log(newArr3);
+
+    //reduce()
+            // string twy ko poung yin inital value "0" yay
+    let newArr4 = fruit.reduce(function(p,c){
+                console.log(p+"-"+c);
+                return p+c;
+              
+    }  ,"0");
+
+    console.log(newArr4);
+ // number တွေကို poung yin initial value 0 yay
+    let newArr5 = mark.reduce(function(x,y){
+                console.log(x+"-"+y);
+                return x+y;
+    },0);
+    console.log(newArr5);
+
+     
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // ရိုးရိုး obj
+
+        // let myself = {
+
+        //      name: "Amy Moe",
+        //      Age:20,
+        //      job: "Student",
+        //      relationship: "Single",
+
+        //      study(){
+        //          return "I'm learning Programming at MMS IT";
+        //      },
+
+        //      bdyear(){
+        //          return "I was borned in 2001.";
+        //      }
+
+
+        // };
+
+        // class Myself {
+        //     // constructor htl ka para ထည့်ချင်ရင် class name နောက်မှာ () နဲ့ ထည့်ရေးပီ run ရတယ်
+
+        //      constructor(x){
+        //          console.log("this is constructor---" + x);
+        //      };
+        //     name = "Amy Moe";
+        //     age =20;
+        //     job ="student";
+        //     relationship = "Single";
+        //     // static method ဆိုတာရှိတယ် class ကို obj မပြောင်းဘဲ တခုထဲကို ယူသုံးချင်ရင် အရှေ့ကနေ static ရေးလိုက်
+
+        //     //  static introduce(){
+        //     //     return "I'm Amy Moe Zaw";
+        //     // }
+
+        //     study(){
+        //         return "I'm learning programming at MMS IT";
+        //     }
+
+        //     bdyear(){
+        //         return "I was borned in 2001";
+        //     }
+        // };
+        // class ကို obj ပြောင်းပေးရတယ် instantiate လုပ်တယ်လို့ခေါ်တယ် 
+        // class ta ku ko name twy a myo myo pay p obj a myar gyi lote thone loh ya tl
+
+        // constructor ဆိုတာ class ကို run လိုက်ရင် ပထမဆုံး အလုပ်လုပ်ပေးနိုင်တဲ့ method ပဲ magic method လို့လဲခေါ်တယ်
+        //new Myself နောက်မှာ ဘာလို့ ( )ထည့်ထားလဲဆိုတော့ constructor ရဲ့ para ထဲမှာ value ထည့်လို့
+        // let myinfo = new Myself("bbb");
+
+       class Student{
+
+            constructor(name,age,number){
+                this.name = name;
+                this.age = age;
+                this.number = number;
+            
+            }
+
+          greeting(){
+              return "My name is "+this.name+ " And I'm "+this.age+" .This is my number "+ this.number;
+          }
+
+       };
+
+       let S1 = new Student("Amy Moe","20","0922133322");
+       let S2 = new Student("Htoo Htoo","19","0922133422");
+       let S3 = new Student("Amy","30","0924333422");
+       let S4 = new Student("Ken","24","0922145762");
+
+    </script>
+</body>
+</html>

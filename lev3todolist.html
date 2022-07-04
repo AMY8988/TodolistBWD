@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
    <head>
        <title>
@@ -9,7 +9,7 @@
 
         <Div class="toDoList">
             <div>
-                <input type="text" id="input">
+                <input type="text" id='input'>
                 <button id="addText" onclick="addlist()">add</button>
             </div>
 
@@ -39,7 +39,7 @@
                  }
              }
 
-             function Showlist(text){
+             function ShowlistBackup(text){
                 list.innerHTML +=  `
                  <li class="listItem" id="list${i}">
                     <button class="btn-delete" onclick="deletelist(${i})" >Delete</button>
@@ -48,7 +48,52 @@
                 </li>
                  `
                  i++;
+             };
+
+
+
+
+             function Showlist(text){
+                 let li = document.createElement("li");
+                 let span = document.createElement("span");
+                 let content = document.createTextNode(text);
+                 span.appendChild(content);
+                 li.appendChild(span);
+                 list.appendChild(li);
+                
+                 // id ပေးလို့ရတယ် element ကို
+                 li.id = `list${i}`;
+                 span.id = `listText${i}`;
+
+                 let delBtn = document.createElement("button");
+                 let deltext = document.createTextNode("Delete");
+                 let editBtn = document.createElement("button");
+                 let editText = document.createTextNode("Edit")
+                 editBtn.appendChild(editText);
+                 delBtn.appendChild(deltext);
+                
+                 // event တွေရေးချင်ရင် setAttribute နဲ့ရေး
+                 // event တင်မကဘူး တခြားဟာတွေပါရေးလို့ရတယ်
+                 editBtn.setAttribute("onclick" , `editList(${i})`);
+                 delBtn.setAttribute("onclick", `deletelist(${i})`);
+                 li.appendChild(delBtn);
+                 li.appendChild(editBtn);
+
              }
+
+             
+           
+             function editList(listId){
+                let current = document.getElementById(`listText${listId}`);
+                let newText = prompt("Say Something",current.innerHTML );
+
+               if(textFliter(newText)) {
+                current.innerHTML = newText;
+               }
+                
+            };
+
+
 
              function deletelist(listId){
                  let current = document.getElementById(`list${listId}`)
@@ -61,17 +106,6 @@
                  }else{
                      console.log("Cancel Delete")
                  }
-             }
-
-             function editList(listId){
-                let current = document.getElementById(`listText${listId}`);
-                let newText = prompt("Say Something",current.innerHTML );
-
-               if(textFliter(newText)) {
-                current.innerHTML = newText;
-               }
-                
-
              }
 
             function addlist(){
